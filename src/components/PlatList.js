@@ -11,7 +11,7 @@ function PlatList ({ plats }) {
       {
         plats.map((plat) => {
           return (
-            <PlatListItem plat={plat} />
+            <PlatListItem key={plat._id} plat={plat} />
           )
         })
       }
