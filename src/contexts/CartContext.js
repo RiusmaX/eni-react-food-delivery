@@ -30,13 +30,8 @@ const cartReducer = (state, action) => {
         return { ...state, cart: state.cart.concat([{item: action.data, quantity: 1}]) }
       }
     case actions.REMOVE_FROM_CART:
-      let index = state.cart.findIndex(item => item._id === action.data)
-      // On duplique le tableau en mémoire
-      let cart = state.cart.slice()
-      // On retire l'élément du tableau
-      cart.splice(index, 1)
-      // On met à jour l'état global
-      return { cart: cart }
+      let cart = state.cart.filter((item) => item.item._id !== action.data)
+      return { ...state, cart: cart }
     default:
       throw new Error('Unhandled action type : ' + action.type)
   }
