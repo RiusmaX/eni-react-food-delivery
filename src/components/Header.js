@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 
 function Header() {
+  // Ne pas afficher le header sur certaines pages 
+  // if(window.location.pathname === '/') {
+  //   return null
+  // }
   return (
     <header>
       <nav>
