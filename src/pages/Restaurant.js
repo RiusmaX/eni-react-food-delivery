@@ -17,7 +17,7 @@ function Restaurant () {
     }
 
     getData(id)
-  }, [])
+  }, [id])
 
   if (loading || !restaurant) {
     return <h2>Chargement...</h2>
@@ -26,7 +26,7 @@ function Restaurant () {
   return (
     <div>
       <h1>{restaurant.title}</h1>
-      <img src={`https://strapi.myidea.fr${restaurant.photos[0].url}`} />
+      <img src={`https://strapi.myidea.fr${restaurant.photos[0].url}`} alt='Logo Restaurant' />
       <p>{restaurant.description}</p>
       <h2>La carte :</h2>
       <PlatList plats={restaurant.plats} />

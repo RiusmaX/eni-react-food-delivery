@@ -30,7 +30,7 @@ const cartReducer = (state, action) => {
         return { ...state, cart: state.cart.concat([{item: action.data, quantity: 1}]) }
       }
     case actions.REMOVE_FROM_CART:
-      let cart = state.cart.filter((item) => item.item._id !== action.data)
+      let cart = state.cart.filter((item) => item.item._id !== action.data._id)
       return { ...state, cart: cart }
     default:
       throw new Error('Unhandled action type : ' + action.type)

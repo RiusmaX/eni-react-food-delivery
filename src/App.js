@@ -5,15 +5,26 @@ import Header from './components/Header';
 import Navigator from './navigation/Navigator';
 
 import { CartProvider } from './contexts/CartContext'
+import AuthModal from './components/AuthModal';
+import ReactModal from 'react-modal';
+import { ModalProvider } from './contexts/ModalContext';
+import { AuthProvider } from './contexts/AuthContext';
+
+ReactModal.setAppElement('#root')
 
 function App() {
   return (
     <div className="App">
       <Router>
         <CartProvider>
-          <Header />
-          <Navigator />
-          <Cart />
+          <ModalProvider>
+            <AuthProvider>
+              <Header />
+              <Navigator />
+              <Cart />
+              <AuthModal />
+            </AuthProvider>
+          </ModalProvider>
         </CartProvider>
       </Router>
     </div>

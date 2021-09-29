@@ -11,7 +11,7 @@ function CartItem ({ item }) {
 
   const remove = (e) => {
     e.preventDefault()
-    dispatch({ type: actions.REMOVE_FROM_CART, data: item.item._id })
+    dispatch({ type: actions.REMOVE_FROM_CART, data: item.item })
   }
 
   return (

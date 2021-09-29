@@ -7,6 +7,24 @@ const api = axios.create({
   }
 })
 
+const register = async (user) => {
+  try {
+    const response = await api.post('/auth/local/register', user)
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const login = async (credentials) => {
+  try {
+    const response = await api.post('/auth/local', credentials)
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 const getRestaurants = async () => {
   try {
     const response = await api.get('/restaurants')
@@ -26,6 +44,8 @@ const getRestaurantById = async (id) => {
 }
 
 export {
+  register,
+  login,
   getRestaurants,
   getRestaurantById
 }

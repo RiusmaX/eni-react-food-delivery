@@ -8,10 +8,9 @@ RestaurantListItem.propTypes = {
 }
 
 function RestaurantListItem ({ restaurant }) {
-  console.log(restaurant)
   return (
     <div className='card'>
-      <img src={`https://strapi.myidea.fr${restaurant.photos[0].url}`} />
+      <img src={`https://strapi.myidea.fr${restaurant.photos[0].url}`} alt='Restaurant' />
       <h3>{restaurant.title}</h3>
       <p>{restaurant.description}</p>
       <Link to={`/restaurant/${restaurant._id}`}>
