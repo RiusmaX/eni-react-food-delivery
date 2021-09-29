@@ -4,6 +4,10 @@ import CartItem from './CartItem'
 
 import './styles/Cart.css'
 
+/**
+ * Composant responsable de l'affichage du panier (commande)
+ * @returns Le composant Cart
+ */
 const Cart = () => {
   const { state: { cart } } = useCart()
   /* Utilisation de React Draggable pour rendre le composant Cart déplaçable à la souris */
@@ -24,4 +28,6 @@ const Cart = () => {
   )
 }
 
+// Export par défaut du composant
+// Import sans les {}
 export default Cart

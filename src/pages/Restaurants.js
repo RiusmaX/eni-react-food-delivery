@@ -48,4 +48,6 @@ function Restaurants () {
   )
 }
 
+// Export par défaut du composant
+// Import sans les {}
 export default Restaurants

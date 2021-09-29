@@ -13,6 +13,7 @@ import Restaurant from '../pages/Restaurant'
 function Navigator () {
   return (
     <Switch>
+      {/* Route dynamique avec le paramètre "id" */}
       <Route path='/restaurant/:id'>
         <Restaurant />  
       </Route>
@@ -26,4 +27,6 @@ function Navigator () {
   )
 }
 
+// Export par défaut du composant
+// Import sans les {}
 export default Navigator

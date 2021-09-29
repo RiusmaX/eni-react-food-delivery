@@ -169,10 +169,16 @@ const registerUser = async (dispatch, infos) => {
   }
 }
 
+/**
+ * Déconnecte l'utilisateur en réinitialisant l'état global
+ * @param {*} dispatch fonction dispatch permettant de propager l'action
+ */
 const logout = async (dispatch) => {
   dispatch({type: actions.LOGOUT})
 }
 
+// Export sélectif
+// Import avec {}
 export {
   AuthProvider,
   useAuth,

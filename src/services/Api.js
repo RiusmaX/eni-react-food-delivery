@@ -26,7 +26,7 @@ const register = async (user) => {
 }
 
 /**
- * Connecte un utilisateur via l'API
+ * Connecte un utilisateur via l'API (récupération du JWT)
  * @param {*} credentials les données saisies par l'utilisateur
  * @returns la réponse de l'API (contenant le JWT et le user)
  */

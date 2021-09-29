@@ -2,12 +2,22 @@ import PropTypes from "prop-types"
 
 import { useCart, actions } from '../contexts/CartContext'
 
+// Définition du format des propriétés attendues
 PlatListItem.propTypes = {
   plat: PropTypes.object.isRequired
 }
 
+/**
+ * Composant affichant un item de plat dans la liste des plats d'un restaurant
+ * @param {*} plat Le plat à afficher 
+ * @returns Le composant d'item de liste des plats 
+ */
 function PlatListItem ({ plat }) {
   const { dispatch } = useCart()
+
+  /**
+   * Méthode d'ajout au panier via le contexte Cart
+   */
   const addToCart = () => {
     dispatch({ type: actions.ADD_TO_CART, data: plat })
   }
@@ -23,4 +33,6 @@ function PlatListItem ({ plat }) {
   )
 } 
 
+// Export par défaut du composant
+// Import sans les {}
 export default PlatListItem
