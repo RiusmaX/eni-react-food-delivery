@@ -10,13 +10,14 @@ import ReactModal from 'react-modal';
 import { ModalProvider } from './contexts/ModalContext';
 import { AuthProvider } from './contexts/AuthContext';
 
+// Fonction essentielle du React Modal afin qu'il détermine la racine de notre application
 ReactModal.setAppElement('#root')
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <CartProvider>
+      <Router> {/* Déclaration du routage principal de l'application */}
+        <CartProvider> {/* Encadrer les composants enfants ayant besoin de l'accès au contexte par un Provider */}
           <ModalProvider>
             <AuthProvider>
               <Header />

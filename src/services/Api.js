@@ -1,5 +1,8 @@
 import axios from "axios"
 
+/**
+ * Création d'une instance d'axios permettant de ne pas en redéclarer une dans chaque fonction
+ */
 const api = axios.create({
   baseURL: 'https://strapi.myidea.fr',
   headers: {
@@ -7,6 +10,11 @@ const api = axios.create({
   }
 })
 
+/**
+ * Enregistre un utilisateur dans l'API
+ * @param {*} user les données saisies par l'utilisateur
+ * @returns la réponse de l'API (contenant le JWT et le user)
+ */
 const register = async (user) => {
   try {
     const response = await api.post('/auth/local/register', user)
@@ -17,6 +25,11 @@ const register = async (user) => {
   }
 }
 
+/**
+ * Connecte un utilisateur via l'API
+ * @param {*} credentials les données saisies par l'utilisateur
+ * @returns la réponse de l'API (contenant le JWT et le user)
+ */
 const login = async (credentials) => {
   try {
     const response = await api.post('/auth/local', credentials)
@@ -27,6 +40,10 @@ const login = async (credentials) => {
   }
 }
 
+/**
+ * Récupère la liste des restaurants dans l'API
+ * @returns les données demandées à l'API
+ */
 const getRestaurants = async () => {
   try {
     const response = await api.get('/restaurants')
@@ -36,6 +53,11 @@ const getRestaurants = async () => {
   }
 }
 
+/**
+ * Récupère un restaurant par son ID
+ * @param {*} id ID du restaurant
+ * @returns le restaurant
+ */
 const getRestaurantById = async (id) => {
   try {
     const response = await api.get(`/restaurants/${id}`)
@@ -45,6 +67,7 @@ const getRestaurantById = async (id) => {
   }
 }
 
+// Export des différentes méthodes pour les rendre disponibles dans les autres composants
 export {
   register,
   login,

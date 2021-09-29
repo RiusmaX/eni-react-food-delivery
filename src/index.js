@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/**
+ * Render initial de l'application dans la div ayant pour ID "root"
+ */
 ReactDOM.render(
   <React.StrictMode>
     <App />

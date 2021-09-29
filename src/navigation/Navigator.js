@@ -6,6 +6,10 @@ import Home from '../pages/Home'
 import Restaurants from '../pages/Restaurants'
 import Restaurant from '../pages/Restaurant'
 
+/**
+ * Déclaration de notre routeur de navigation et des différentes routes
+ * @returns Composant de navigation 
+ */
 function Navigator () {
   return (
     <Switch>
