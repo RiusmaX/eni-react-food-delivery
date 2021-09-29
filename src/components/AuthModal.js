@@ -2,6 +2,7 @@ import { useState } from "react"
 import ReactModal from "react-modal"
 import { useAuth, loginUser, registerUser } from "../contexts/AuthContext"
 import { useModal, closeModal } from "../contexts/ModalContext"
+import RegisterForm from "./Form/RegisterForm"
 
 function AuthModal () {
   // Initialisation de l'état local permettant de stocker la saisie de l'utilisateur
@@ -37,8 +38,7 @@ function AuthModal () {
    * Gère le clic sur le bouton d'inscription
    * @param {*} e évènement provenant du HTML (correspondant à l'action du clic sur le bouton)
    */
-  const handleSubmitRegister = async (e) => {
-    e.preventDefault()
+  const handleSubmitRegister = async (formData) => {
     registerUser(authDispatch, formData)
     closeModal(dispatch)
   }
@@ -67,26 +67,7 @@ function AuthModal () {
         {
           isRegister
           ? (
-            <div>
-              <form onSubmit={handleSubmitRegister}>
-                <label>
-                  Username : 
-                  <input name='username' onChange={handleChange} value={formData.username} />
-                </label>
-                <br />
-                <label>
-                  Email : 
-                  <input name='email' onChange={handleChange} value={formData.email} />
-                </label>
-                <br />
-                <label>
-                  Password :
-                  <input type='password' name='password' onChange={handleChange} value={formData.password} />
-                </label>
-                <br />
-                <input type='submit' value={loading ? "Chargement..." : "S'enregistrer"} />
-              </form>
-            </div>
+            <RegisterForm onSubmit={handleSubmitRegister} loading={loading} />
           )
           : (
             <div>
