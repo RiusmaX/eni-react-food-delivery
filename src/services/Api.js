@@ -13,6 +13,7 @@ const register = async (user) => {
     return response.data
   } catch (e) {
     console.error(e)
+    throw new Error(e)
   }
 }
 
@@ -22,6 +23,7 @@ const login = async (credentials) => {
     return response.data
   } catch (e) {
     console.error(e)
+    throw new Error(e)
   }
 }
 
