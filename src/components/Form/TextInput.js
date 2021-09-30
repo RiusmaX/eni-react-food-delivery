@@ -12,13 +12,13 @@ TextInput.propTypes = {
 
 /**
  * Composant de champ de saisie texte + label
- * @param {*} props Les propriétés du composant 
+ * @param {*} props Les propriétés du composant
  * @returns Le composant de champ de texte
  */
-function TextInput ({label, labelProps, labelClassName, name, onChange, value, ...props}) {
+function TextInput ({ label, labelProps, labelClassName, name, onChange, value, ...props }) {
   return (
     <label className={labelClassName} {...labelProps}>
-      {label} : 
+      {label} :
       <input name={name} onChange={onChange} value={value} {...props} />
     </label>
   )

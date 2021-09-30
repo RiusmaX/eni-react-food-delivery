@@ -11,7 +11,7 @@ RestaurantListItem.propTypes = {
 
 /**
  * Composant affichant d'un item restaurant dans la liste des restaurants
- * @param {*} restaurant Le restaurant à afficher 
+ * @param {*} restaurant Le restaurant à afficher
  * @returns Le composant d'item de liste des restaurants
  */
 function RestaurantListItem ({ restaurant }) {

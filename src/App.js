@@ -1,23 +1,23 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-import Cart from './components/Cart';
-import Header from './components/Header';
-import Navigator from './navigation/Navigator';
+import { BrowserRouter as Router } from 'react-router-dom'
+import './App.css'
+import Cart from './components/Cart'
+import Header from './components/Header'
+import Navigator from './navigation/Navigator'
 
 import { CartProvider } from './contexts/CartContext'
-import AuthModal from './components/AuthModal';
-import ReactModal from 'react-modal';
-import { ModalProvider } from './contexts/ModalContext';
-import { AuthProvider } from './contexts/AuthContext';
+import AuthModal from './components/AuthModal'
+import ReactModal from 'react-modal'
+import { ModalProvider } from './contexts/ModalContext'
+import { AuthProvider } from './contexts/AuthContext'
 
 // Fonction essentielle du React Modal afin qu'il détermine la racine de notre application
-if(process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root')
-if(process.env.NODE_ENV === 'production') console.log = () => {return null}
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root')
+if (process.env.NODE_ENV === 'production') console.log = () => { return null }
 console.log(process.env.NODE_ENV)
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <Router> {/* Déclaration du routage principal de l'application */}
         <CartProvider> {/* Encadrer les composants enfants ayant besoin de l'accès au contexte par un Provider */}
           <ModalProvider>
@@ -31,7 +31,7 @@ function App() {
         </CartProvider>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

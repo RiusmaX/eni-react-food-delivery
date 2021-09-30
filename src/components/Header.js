@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
 import { logout, useAuth } from '../contexts/AuthContext'
 import { useModal, openModal } from '../contexts/ModalContext'
+import Menu from './Menu'
 
 /**
  * En-tête de l'application
  * Contient le menu de navigation et les fonctionnalité de connexion/déconnexion
  * @returns Le composant d'en-tête
  */
-function Header() {
+function Header () {
   // Ne pas afficher le header sur certaines pages (exemple pour l'accueil)
   // if(window.location.pathname === '/') {
   //   return null
@@ -19,21 +19,9 @@ function Header() {
   // Le menu de
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Accueil</Link>
-          </li>
-          <li>
-            <Link to='/restaurants'>Restaurants</Link>
-          </li>
-          <li>
-            <Link to='/components'>Components</Link>
-          </li>
-        </ul>
-        <button onClick={() => openModal(dispatch)}>Login / Register</button>
-        <button onClick={() => logout(authDispatch)}>Logout</button>
-      </nav>
+      <Menu />
+      <button onClick={() => openModal(dispatch)}>Login / Register</button>
+      <button onClick={() => logout(authDispatch)}>Logout</button>
     </header>
   )
 }

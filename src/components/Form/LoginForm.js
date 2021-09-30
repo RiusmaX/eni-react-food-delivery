@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-import TextInput from "./TextInput"
+import TextInput from './TextInput'
 
 // Définition des propriétés
 LoginForm.propTypes = {
@@ -14,10 +14,10 @@ LoginForm.propTypes = {
  * @param {*} props Propriétés du composant
  * @returns Un Composant
  */
- function LoginForm ({ onSubmit, loading, ...props }) {
+function LoginForm ({ onSubmit, loading, ...props }) {
   // Initialisation de l'état local permettant de stocker la saisie de l'utilisateur
-  const [formData, setFormData] = useState({identifier: '', password: ''})
-  
+  const [formData, setFormData] = useState({ identifier: '', password: '' })
+
   /**
    * Gère la saisie de l'utilisateur
    * @param {*} e évènement provenant du HTML (correspondant à l'action de frappe sur le clavier)
@@ -37,14 +37,14 @@ LoginForm.propTypes = {
     e.preventDefault()
     onSubmit(formData)
   }
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <TextInput
         label='Email'
         name='identifier'
         onChange={handleChange}
-        value={formData.identifier} 
+        value={formData.identifier}
       />
       <br />
       <TextInput
@@ -52,10 +52,10 @@ LoginForm.propTypes = {
         label='Password'
         name='password'
         onChange={handleChange}
-        value={formData.password} 
+        value={formData.password}
       />
       <br />
-      <input type='submit' value={loading ? "Chargement..." : "Se connecter"} />
+      <input type='submit' value={loading ? 'Chargement...' : 'Se connecter'} />
     </form>
   )
 }

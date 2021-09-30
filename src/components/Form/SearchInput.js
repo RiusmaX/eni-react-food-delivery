@@ -1,6 +1,6 @@
-import { Search } from "@mui/icons-material"
-import { InputAdornment, TextField } from "@mui/material"
-import { useState } from "react"
+import { Search } from '@mui/icons-material'
+import { InputAdornment, TextField } from '@mui/material'
+import { useState } from 'react'
 
 function SearchInput ({ onChange }) {
   const [searchText, setSearchText] = useState('')
@@ -15,7 +15,7 @@ function SearchInput ({ onChange }) {
       name='searchText'
       onChange={handleChange}
       value={searchText}
-      style={{margin: 25}}
+      style={{ margin: 25, zIndex: 0 }}
       label='Rechercher'
       InputProps={{
         startAdornment: (

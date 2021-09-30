@@ -14,12 +14,12 @@ const actions = {
  * @param state l'état précédent la mise à jour
  * @param action action propagée à l'aide la méthode dispatch(). Contient le type d'action et la data éventuelle associée
  * @return le nouvel état
- * */ 
+ * */
 const modalReducer = (state, action) => {
   switch (action.type) {
-    case actions.OPEN_MODAL: 
+    case actions.OPEN_MODAL:
       return { isOpen: true }
-    case actions.CLOSE_MODAL: 
+    case actions.CLOSE_MODAL:
       return { isOpen: false }
     default:
       throw new Error('Unhandled action type : ' + action.type)
@@ -28,7 +28,7 @@ const modalReducer = (state, action) => {
 
 /**
  * Provider à placer au dessus des enfants (consumers) ayant besoin d'avoir accès à ce contexte
- * @param {*} children les enfants du composant 
+ * @param {*} children les enfants du composant
  * @returns Composant Provider à placer autour des enfants (consumers)
  */
 const ModalProvider = ({ children }) => {

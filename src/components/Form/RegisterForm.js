@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-import TextInput from "./TextInput"
+import TextInput from './TextInput'
 
 // Définition des propriétés
 RegisterForm.propTypes = {
@@ -16,8 +16,8 @@ RegisterForm.propTypes = {
  */
 function RegisterForm ({ onSubmit, loading, ...props }) {
   // Initialisation de l'état local permettant de stocker la saisie de l'utilisateur
-  const [formData, setFormData] = useState({username: '', email: '', password: ''})
-  
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' })
+
   /**
    * Gère la saisie de l'utilisateur
    * @param {*} e évènement provenant du HTML (correspondant à l'action de frappe sur le clavier)
@@ -37,21 +37,21 @@ function RegisterForm ({ onSubmit, loading, ...props }) {
     e.preventDefault()
     onSubmit(formData)
   }
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <TextInput
         label='Username'
         name='username'
         onChange={handleChange}
-        value={formData.username} 
+        value={formData.username}
       />
       <br />
       <TextInput
         label='Email'
         name='email'
         onChange={handleChange}
-        value={formData.email} 
+        value={formData.email}
       />
       <br />
       <TextInput
@@ -59,10 +59,10 @@ function RegisterForm ({ onSubmit, loading, ...props }) {
         label='Password'
         name='password'
         onChange={handleChange}
-        value={formData.password} 
+        value={formData.password}
       />
       <br />
-      <input type='submit' value={loading ? "Chargement..." : "S'enregistrer"} />
+      <input type='submit' value={loading ? 'Chargement...' : "S'enregistrer"} />
     </form>
   )
 }

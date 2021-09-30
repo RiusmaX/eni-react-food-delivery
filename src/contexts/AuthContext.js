@@ -26,9 +26,9 @@ const initialState = {
  * @param state l'état précédent la mise à jour
  * @param action action propagée à l'aide la méthode dispatch(). Contient le type d'action et la data éventuelle associée
  * @return le nouvel état
- * */ 
+ * */
 const authReducer = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actions.LOGIN:
       return { user: action.data.user, jwt: action.data.jwt, error: null, loading: false }
     case actions.REGISTER:
@@ -76,7 +76,7 @@ const getStateFromLocalStorage = async () => {
 
 /**
  * Provider à placer au dessus des enfants (consumers) ayant besoin d'avoir accès à ce contexte
- * @param {*} children les enfants du composant 
+ * @param {*} children les enfants du composant
  * @returns Composant Provider à placer autour des enfants (consumers)
  */
 const AuthProvider = ({ children }) => {
@@ -87,7 +87,7 @@ const AuthProvider = ({ children }) => {
     // Déclaration de la méthode pour charger l'état depuis le localStorage
     const loadStoredState = async () => {
       // Dispatch de l'action de chargement
-      dispatch({ type: actions.LOADING, data: { loading: true }})
+      dispatch({ type: actions.LOADING, data: { loading: true } })
       // Récupération du l'état stocké
       const storedState = await getStateFromLocalStorage()
       console.log('Chargement du state')
@@ -95,7 +95,7 @@ const AuthProvider = ({ children }) => {
     }
     // Appel de la méthode
     loadStoredState()
-  }, []) // Le array vide force le useEffect à ne se déclancher qu'au premier chargement 
+  }, []) // Le array vide force le useEffect à ne se déclancher qu'au premier chargement
 
   // Enregistre l'état local en cas de modification ([state])
   useEffect(() => {
@@ -108,9 +108,9 @@ const AuthProvider = ({ children }) => {
       console.log('Enregistrement du state')
       saveState(state)
     }
-  }, [state]) // On précise la variable qui doit redéclancher le useEffect et donc la sauvegarde du state 
+  }, [state]) // On précise la variable qui doit redéclancher le useEffect et donc la sauvegarde du state
 
-  return <AuthContext.Provider value={{state, dispatch}}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>
 }
 
 /**
@@ -126,7 +126,7 @@ const useAuth = () => {
 }
 
 /**
- * Authentifie l'utilisateur sur l'API puis propage l'action correspondant au résultat. 
+ * Authentifie l'utilisateur sur l'API puis propage l'action correspondant au résultat.
  * Si l'authentification est correcte, l'action LOGIN est dispatchée avec la data (user et jwt)
  * Si l'authentification échoue, l'action ERROR est dispatchée avec le motif de l'erreur
  * @param {*} dispatch fonction dispatch permettant de propager l'action
@@ -140,17 +140,17 @@ const loginUser = async (dispatch, credentials) => {
     const { user, jwt } = await login(credentials)
     if (user && jwt) {
       // Succès, dispatch de l'action pour mettre à jour l'état global
-      dispatch({ type: actions.LOGIN, data: {user, jwt} })
+      dispatch({ type: actions.LOGIN, data: { user, jwt } })
     }
   } catch (e) {
     console.error(e)
     // Echec, dispatch de l'action pour remonter l'erreur
-    dispatch({ type: actions.ERROR, data: {error: e } })
+    dispatch({ type: actions.ERROR, data: { error: e } })
   }
 }
 
 /**
- * Inscrit l'utilisateur sur l'API puis propage l'action correspondant au résultat. 
+ * Inscrit l'utilisateur sur l'API puis propage l'action correspondant au résultat.
  * Si l'authentification est correcte, l'action LOGIN est dispatchée avec la data (user et jwt)
  * Si l'authentification échoue, l'action ERROR est dispatchée avec le motif de l'erreur
  * @param {*} dispatch fonction dispatch permettant de propager l'action
@@ -161,11 +161,11 @@ const registerUser = async (dispatch, infos) => {
     dispatch({ type: actions.LOADING, data: { loading: true } })
     const { user, jwt } = await register(infos)
     if (user && jwt) {
-      dispatch({ type: actions.REGISTER, data: {user, jwt} })
+      dispatch({ type: actions.REGISTER, data: { user, jwt } })
     }
   } catch (e) {
     console.error(e)
-    dispatch({ type: actions.ERROR, data: {error: e } })
+    dispatch({ type: actions.ERROR, data: { error: e } })
   }
 }
 
@@ -174,7 +174,7 @@ const registerUser = async (dispatch, infos) => {
  * @param {*} dispatch fonction dispatch permettant de propager l'action
  */
 const logout = async (dispatch) => {
-  dispatch({type: actions.LOGOUT})
+  dispatch({ type: actions.LOGOUT })
 }
 
 // Export par défaut

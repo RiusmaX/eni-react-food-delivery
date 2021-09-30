@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 /**
  * Création d'une instance d'axios permettant de ne pas en redéclarer une dans chaque fonction

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router"
-import PlatList from "../components/PlatList"
-import { getRestaurantById } from "../services/Api"
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import PlatList from '../components/PlatList'
+import { getRestaurantById } from '../services/Api'
 
 /**
- * Composant représentant la page d'un restaurant 
+ * Composant représentant la page d'un restaurant
  * @returns Le composant
  */
 function Restaurant () {
@@ -28,7 +28,7 @@ function Restaurant () {
     }
 
     getData(id)
-  }, [id]) // On précise la variable qui doit redéclancher le useEffect 
+  }, [id]) // On précise la variable qui doit redéclancher le useEffect
 
   // Gestion du chargement
   if (loading || !restaurant) {

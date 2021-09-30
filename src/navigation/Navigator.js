@@ -10,14 +10,14 @@ import ComponentsClass from '../pages/ComponentsClass'
 
 /**
  * Déclaration de notre routeur de navigation et des différentes routes
- * @returns Composant de navigation 
+ * @returns Composant de navigation
  */
 function Navigator () {
   return (
     <Switch>
       {/* Route dynamique avec le paramètre "id" */}
       <Route path='/restaurant/:id'>
-        <Restaurant />  
+        <Restaurant />
       </Route>
       <Route path='/restaurants'>
         <Restaurants />

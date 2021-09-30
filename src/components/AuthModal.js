@@ -1,20 +1,20 @@
-import { useState } from "react"
-import ReactModal from "react-modal"
-import { useAuth, loginUser, registerUser } from "../contexts/AuthContext"
-import { useModal, closeModal } from "../contexts/ModalContext"
-import LoginForm from "./Form/LoginForm"
-import RegisterForm from "./Form/RegisterForm"
+import { useState } from 'react'
+import ReactModal from 'react-modal'
+import { useAuth, loginUser, registerUser } from '../contexts/AuthContext'
+import { useModal, closeModal } from '../contexts/ModalContext'
+import LoginForm from './Form/LoginForm'
+import RegisterForm from './Form/RegisterForm'
 
 function AuthModal () {
   // Initialisation de l'état local permettant la bascule entre le formulaire d'inscription et de connexion
   const [isRegister, setIsRegister] = useState(false)
 
   // Récupération de l'état global et de la fonction dispatch en provenance du contexte
-  const { state: { isOpen }, dispatch: dispatch } = useModal()
+  const { state: { isOpen }, dispatch } = useModal()
 
   // Récupération de l'état global et de la fonction dispatch en provenance du contexte
   // Renommer le dispatch car déjà importé depuis un autre contexte au dessus
-  const { state: { loading }, dispatch: authDispatch} = useAuth()
+  const { state: { loading }, dispatch: authDispatch } = useAuth()
   // Equivalents de syntaxe
   // const state = useAuth().state
   // const loading = state.loading
@@ -48,19 +48,20 @@ function AuthModal () {
   return (
     <ReactModal
       isOpen={isOpen}
-      onRequestClose={() => closeModal(dispatch)}>
-        {
+      onRequestClose={() => closeModal(dispatch)}
+    >
+      {
           isRegister
-          ? (
-            <RegisterForm onSubmit={handleSubmitRegister} loading={loading} />
-          )
-          : (
-            <LoginForm onSubmit={handleSubmitLogin} loading={loading} />
-          )
+            ? (
+              <RegisterForm onSubmit={handleSubmitRegister} loading={loading} />
+              )
+            : (
+              <LoginForm onSubmit={handleSubmitLogin} loading={loading} />
+              )
         }
-        <button onClick={handleToggleRegisterMode}>
-          {isRegister ? "J'ai déja un compte" : "Je n'ai pas de compte"}
-        </button>
+      <button onClick={handleToggleRegisterMode}>
+        {isRegister ? "J'ai déja un compte" : "Je n'ai pas de compte"}
+      </button>
     </ReactModal>
   )
 }

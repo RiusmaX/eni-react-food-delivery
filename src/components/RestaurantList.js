@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import RestaurantListItem from "./RestaurantListItem"
+import RestaurantListItem from './RestaurantListItem'
 
 import './styles/RestaurantList.css'
 
@@ -19,10 +19,12 @@ function RestaurantList ({ restaurants }) {
       {
         // On boucle sur la liste des restaurants et on retourne un RestaurantListItem pour chaque élément de la liste
         restaurants.map((restaurant) => {
-          return  <RestaurantListItem
-                    key={restaurant._id}
-                    restaurant={restaurant}
-                  />
+          return (
+            <RestaurantListItem
+              key={restaurant._id}
+              restaurant={restaurant}
+            />
+          )
         })
       }
     </div>

@@ -11,22 +11,23 @@ function Select ({ data, onChange, selector }) {
     <select data-testid='select1' onChange={onChange}>
       {
         data.map((option, index) => {
-          // Déterminer le format de la data passée en paramètre 
-          if (typeof(option) === 'object') {
+          // Déterminer le format de la data passée en paramètre
+          if (typeof (option) === 'object') {
             return (
               <option
                 key={index}
                 value={option[selector]}
               >
-                  {option[selector]}
+                {option[selector]}
               </option>
             )
           } else {
             return (
               <option
                 key={index}
-                value={option}>
-                  {option}
+                value={option}
+              >
+                {option}
               </option>
             )
           }

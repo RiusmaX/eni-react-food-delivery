@@ -9,7 +9,7 @@ CartItem.propTypes = {
 
 /**
  * Composant représentant 1 item du panier
- * @param {*} item Représente 1 élément du panier 
+ * @param {*} item Représente 1 élément du panier
  * @returns Le composant item du panier
  */
 function CartItem ({ item }) {
@@ -25,7 +25,7 @@ function CartItem ({ item }) {
   }
 
   return (
-    <div style={{display: 'flex', flexDirection: 'row' /* Exemple de style inline */}}>
+    <div style={{ display: 'flex', flexDirection: 'row' /* Exemple de style inline */ }}>
       <button onClick={remove}>X</button>
       <h4>{item.item.nom}</h4>
       <h5>{item.quantity}</h5>

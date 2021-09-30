@@ -1,5 +1,5 @@
-import PropTypes from "prop-types"
-import PlatListItem from "./PlatListItem"
+import PropTypes from 'prop-types'
+import PlatListItem from './PlatListItem'
 
 // Définition du format des propriétés attendues
 PlatList.propTypes = {
@@ -8,7 +8,7 @@ PlatList.propTypes = {
 
 /**
  * Composant affichant la liste des plats d'un restaurant
- * @param {*} plats La liste des plats du restaurant 
+ * @param {*} plats La liste des plats du restaurant
  * @returns Le composant de liste des plats
  */
 function PlatList ({ plats }) {

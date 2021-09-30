@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import SearchInput from "../components/Form/SearchInput"
-import RestaurantList from "../components/RestaurantList"
+import { useEffect, useState } from 'react'
+import SearchInput from '../components/Form/SearchInput'
+import RestaurantList from '../components/RestaurantList'
 
 import { getRestaurants } from '../services/Api'
 
@@ -9,7 +9,7 @@ import { getRestaurants } from '../services/Api'
  * @returns Un composant sous forme de page
  */
 function Restaurants () {
-  // Etat local de stockage de la liste des restaurants 
+  // Etat local de stockage de la liste des restaurants
   const [restaurants, setRestaurants] = useState([])
   // Gestion du chargement
   const [loading, setLoading] = useState(false)
@@ -17,7 +17,7 @@ function Restaurants () {
   const [searchText, setSearchText] = useState('')
 
   // Méthode équivalente aux méthodes de cycle de vie d'un composant sous forme de classe
-  // Par défaut, appelé au montage du composant ainsi qu'a ses rafraîchissements 
+  // Par défaut, appelé au montage du composant ainsi qu'a ses rafraîchissements
   useEffect(() => {
     // Déclaration d'une méthode asynchrone afin de récupérer les données
     // On ne peut pas rentre un useEffect entier asynchrone car cela pourrait être bloquant pour notre rendu, on passe donc par une méthode intermédiaire
@@ -44,10 +44,10 @@ function Restaurants () {
   }
 
   // Filtrage des restaurants en fonction du terme de recherche (titre et description)
-  let restaurantsFiltered = restaurants.filter(
+  const restaurantsFiltered = restaurants.filter(
     // On utilise toLocaleLowerCase() afin de comparer des chaînes caractère au même format
-    (r) => r.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-    || r.description.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    (r) => r.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()) ||
+    r.description.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
   )
 
   // Rendu du composant une fois les donnéees chargées
@@ -56,8 +56,8 @@ function Restaurants () {
       <SearchInput onChange={handleSearch} />
       {
         !restaurants || restaurants.length < 1
-        ? <h2>Aucuns restaurants</h2>
-        :  <RestaurantList restaurants={restaurantsFiltered} />
+          ? <h2>Aucuns restaurants</h2>
+          : <RestaurantList restaurants={restaurantsFiltered} />
       }
     </div>
   )
