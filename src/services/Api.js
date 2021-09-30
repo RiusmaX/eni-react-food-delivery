@@ -3,8 +3,6 @@ import axios from "axios"
 /**
  * Création d'une instance d'axios permettant de ne pas en redéclarer une dans chaque fonction
  */
-console.log('API URL : ' + process.env.REACT_APP_API_URL)
-
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   headers: {

@@ -37,8 +37,8 @@ function Components () {
   }
 
   return (
-    <div style={{marginTop: 50}}>
-      <h1>Composant sous forme de fonction</h1>
+    <div data-testid='components-container' style={{marginTop: 50}}>
+      <h1 data-testid='title' >Composant sous forme de fonction</h1>
       <Select
         data={countries}
         onChange={handleChangeSelect}

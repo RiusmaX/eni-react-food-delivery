@@ -8,7 +8,7 @@ Select.propTypes = {
 
 function Select ({ data, onChange, selector }) {
   return (
-    <select onChange={onChange}>
+    <select data-testid='select1' onChange={onChange}>
       {
         data.map((option, index) => {
           // Déterminer le format de la data passée en paramètre 

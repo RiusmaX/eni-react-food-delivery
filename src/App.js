@@ -11,7 +11,9 @@ import { ModalProvider } from './contexts/ModalContext';
 import { AuthProvider } from './contexts/AuthContext';
 
 // Fonction essentielle du React Modal afin qu'il détermine la racine de notre application
-ReactModal.setAppElement('#root')
+if(process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root')
+if(process.env.NODE_ENV === 'production') console.log = () => {return null}
+console.log(process.env.NODE_ENV)
 
 function App() {
   return (
