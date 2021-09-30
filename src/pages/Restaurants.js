@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import SearchInput from "../components/Form/SearchInput"
 import RestaurantList from "../components/RestaurantList"
 
 import { getRestaurants } from '../services/Api'
@@ -12,6 +13,8 @@ function Restaurants () {
   const [restaurants, setRestaurants] = useState([])
   // Gestion du chargement
   const [loading, setLoading] = useState(false)
+  // Gestion de la recherche
+  const [searchText, setSearchText] = useState('')
 
   // Méthode équivalente aux méthodes de cycle de vie d'un composant sous forme de classe
   // Par défaut, appelé au montage du composant ainsi qu'a ses rafraîchissements 
@@ -28,6 +31,11 @@ function Restaurants () {
     getData()
   }, [])
 
+  // Gestion de la saisie dans le composant de recherche
+  const handleSearch = (text) => {
+    setSearchText(text)
+  }
+
   // Chargement
   if (loading) {
     return (
@@ -35,16 +43,23 @@ function Restaurants () {
     )
   }
 
-  // Pas de données ou erreur de chargement
-  if(!restaurants || restaurants.length < 1) {
-    return (
-      <h2>Aucuns restaurants</h2>
-    )
-  }
+  // Filtrage des restaurants en fonction du terme de recherche (titre et description)
+  let restaurantsFiltered = restaurants.filter(
+    // On utilise toLocaleLowerCase() afin de comparer des chaînes caractère au même format
+    (r) => r.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    || r.description.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+  )
 
   // Rendu du composant une fois les donnéees chargées
   return (
-    <RestaurantList restaurants={restaurants} />
+    <div>
+      <SearchInput onChange={handleSearch} />
+      {
+        !restaurants || restaurants.length < 1
+        ? <h2>Aucuns restaurants</h2>
+        :  <RestaurantList restaurants={restaurantsFiltered} />
+      }
+    </div>
   )
 }
 
