@@ -5,6 +5,7 @@ import {
 import Home from '../pages/Home'
 import Restaurants from '../pages/Restaurants'
 import Restaurant from '../pages/Restaurant'
+import Components from '../pages/Components'
 
 /**
  * Déclaration de notre routeur de navigation et des différentes routes
@@ -19,6 +20,9 @@ function Navigator () {
       </Route>
       <Route path='/restaurants'>
         <Restaurants />
+      </Route>
+      <Route path='/components'>
+        <Components />
       </Route>
       <Route path='/'>
         <Home />

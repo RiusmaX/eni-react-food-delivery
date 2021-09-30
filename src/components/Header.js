@@ -16,6 +16,7 @@ function Header() {
   const { dispatch } = useModal()
   // Fonction pour déconnecter l'utilisateur via le contexte Auth
   const authDispatch = useAuth().dispatch
+  // Le menu de
   return (
     <header>
       <nav>
@@ -25,6 +26,9 @@ function Header() {
           </li>
           <li>
             <Link to='/restaurants'>Restaurants</Link>
+          </li>
+          <li>
+            <Link to='/components'>Components</Link>
           </li>
         </ul>
         <button onClick={() => openModal(dispatch)}>Login / Register</button>
