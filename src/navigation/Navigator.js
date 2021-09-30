@@ -23,7 +23,7 @@ function Navigator () {
         <Restaurants />
       </Route>
       <Route path='/components'>
-        {/* <Components /> */}
+        <Components />
         <ComponentsClass />
       </Route>
       <Route path='/'>

@@ -56,6 +56,7 @@ class ComponentsClass extends Component {
     const { state: { user, jwt } } = this.context
     return (
       <div style={{marginTop: 50}}>
+        <h1>Composant sous forme de classe</h1>
         <h2>
           {user && jwt ? 'Bonjour, ' + user.username : "Vous n'êtes pas connecté"}
         </h2>
