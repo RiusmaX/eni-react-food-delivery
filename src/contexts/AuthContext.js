@@ -177,6 +177,9 @@ const logout = async (dispatch) => {
   dispatch({type: actions.LOGOUT})
 }
 
+// Export par défaut
+export default AuthContext
+
 // Export sélectif
 // Import avec {}
 export {
